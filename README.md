@@ -22,4 +22,4 @@
 
 # Entrega do desafio 
 
-- Para fazer este desafio, faça o fork desse repo ao terminar envie o link para o e-mail 'samuel@ipsense.com.br'
+- Para fazer este desafio, faça o fork desse repo ao terminar envie o link para o e-mail 'samuelcavallieri@gmail.com'
