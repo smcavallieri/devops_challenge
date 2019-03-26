@@ -1,25 +1,21 @@
 # DevOps Challenge
 
-- Este repo contém código para uma aplicação multicamadas.
+- This repo contains code for a multilayer application.
 
-- A visão geral do aplicativo é a seguinte: web <=> api <=> db
+- The application overview is as follows: web <=> api <=> db
 
-- Existe um diretório api e outro web, você deve dockerizar a aplicação da melhor forma possivel.
+- There is an api directory and another web, you should dock the application in the best possible way.
 
-- Escreva uma receita com a ferramenta de sua preferência (ansible ou terraform) para construir o ambiente e rodar a aplicação de forma automatizada.
+- Write a recipe with the tool of your choice (ansible or terraform) to build the environment and run the application in an automated way.
 
-# Execução
+# Running
 
-- A ideia para testar localmente é apenas executar 'docker-compose up'
-- Acessar url localhost:8080
+- The idea to test locally is to just run 'docker-compose up'
+- Access url localhost: 8080
 
 
-# Avaliação
+# Evaluation
 
-- Contará pontos a qualidade do 'Dockerfile' , 'docker-compose.yml'
-- Pontos extras caso utilize terraform e esteja dentro de boas praticas
-- Pontos extras caso use ansible e esteja bem estruturado
-
-# Entrega do desafio 
-
-- Para fazer este desafio, faça o fork desse repo ao terminar envie o link para o e-mail 'samuelcavallieri@gmail.com'
+- It will count the quality of 'Dockerfile', 'docker-compose.yml'
+- Extra points if you use terraform and are in good practice
+- Extra points if you use ansible and are well structured
