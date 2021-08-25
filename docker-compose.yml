@@ -10,11 +10,13 @@ services:
     build: 
       context: ./api
     environment:
-      DB: "postgres://cami:devops123@banco:5432/devops"
+      API_PORT : 3000
+      API_DB: "postgres://cami:devops123@banco/devops"
   web:
     build:
       context: ./web
     ports:
-      - "8080:8080"
+      - "3000:3000"
     environment:
+      WEB_PORT: 3000
       API_HOST: http://api:3000
