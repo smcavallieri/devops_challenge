@@ -1,13 +1,14 @@
-FROM node:14
+FROM node:11-alpine
 
 WORKDIR /app
 
-COPY package*.json ./
+COPY package.json /app
+RUN npm install --prod
+COPY . /app
 
-RUN npm install
+ENV APP_PORT=8080
 
-COPY . .
+EXPOSE $APP_PORT
+HEALTHCHECK CMD curl --fail http://localhost:$APP_PORT || exit 1
 
-EXPOSE 8080
-
-CMD [ "npm", "start" ]
+CMD ["npm", "start"]

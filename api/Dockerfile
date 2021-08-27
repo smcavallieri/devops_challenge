@@ -1,13 +1,14 @@
-FROM node:14
+FROM node:11-alpine
 
-WORKDIR /app
+WORKDIR /api
 
-COPY package*.json ./
+COPY package.json /api
+RUN npm install --prod
+COPY . /api
 
-RUN npm install
+ENV API_PORT=3000
 
-COPY . .
+EXPOSE $API_PORT
+HEALTHCHECK CMD curl --fail http://localhost:$APP_PORT/api/status || exit 1
 
-EXPOSE 3000
-
-CMD [ "npm", "start" ]
+CMD ["npm", "start"]

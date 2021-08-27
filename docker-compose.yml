@@ -1,20 +1,37 @@
 version: '3'
-services: 
-  banco:
-    image: postgres:9.6.2-alpine
+
+services:
+  db:
+    image: postgres:alpine
+    restart: always
+    volumes:
+      - db:/var/lib/postgresql/data
     environment:
-      POSTGRES_USER: cami
-      POSTGRES_PASSWORD: devops123
-      POSTGRES_DB: devops
+      POSTGRES_PASSWORD: 'la'
+      POSTGRES_DB: 'test'
+      POSTGRES_USER: 'test'
+
   api:
-    build: 
-      context: ./api
-    environment:
-      DB: "postgres://cami:devops123@banco:5432/devops"
-  web:
-    build:
-      context: ./web
+    build: ./api
+    restart: always
     ports:
-      - "8080:8080"
+      - 3000:3000
     environment:
-      API_HOST: http://api:3000
+      DB: 'postgres://test:la@db:5432/test'
+      PORT: 3000
+    links:
+      - db
+
+  web:
+    build: ./web
+    restart: always
+    ports:
+      - 8080:8080
+    environment:
+      PORT: 8080
+      API_HOST: 'http://api:3000'
+    links:
+      - api
+
+volumes:
+  db:
